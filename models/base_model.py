@@ -71,3 +71,15 @@ class BaseModel:
     def save(self):
         """updates the updated_at with the current datetime"""
         self.__updated_at = dateTime.now()
+
+    def to_dict(self):
+        """returns a dictionary containing all \n
+        keys/values of __dict__ of the instance"""
+        self.__created_at = self.__created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        self.__updated_at = self.__updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+
+        new__dict = {}
+        for key, value in self.__dict__.items():
+            new__dict[key] = value
+            new__dict["__class__"] = self.__class__.__name__
+        return new__dict
