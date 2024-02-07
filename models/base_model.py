@@ -67,3 +67,7 @@ class BaseModel:
             raise ValueError("number must be greater than 0")
         else:
             self.__my_number = value_number
+
+    def save(self):
+        """updates the updated_at with the current datetime"""
+        self.__updated_at = dateTime.now()
