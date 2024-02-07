@@ -26,7 +26,7 @@ class BaseModel:
 
         self.__id = str(uuid.uuid4())
         self.__created_at = dateTime.now()
-        slef.__updated_at = dateTime.now()
+        self.__updated_at = dateTime.now()
 
     @property
     def id(self):
